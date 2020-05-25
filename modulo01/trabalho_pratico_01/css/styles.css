@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;700&family=Raleway:wght@300;400;700&display=swap');
+
+body {
+  padding: 10px;
+  font: 400 14px 'Raleway', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font: 400 36px 'Rajdhani', sans-serif;
+}
+.color-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+}
+
+.color {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.label {
+  width: 50px;
+  text-align: start;
+  margin: 0 10px;
+}
+
+.number {
+  width: 50px;
+  margin: 0 10px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 200px;
+  height: 5px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 25%;
+  background: darkslategray;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 25%;
+  background: darkslategray;
+  cursor: pointer;
+}
+
+.color-box {
+  width: 350px;
+  height: 100px;
+}

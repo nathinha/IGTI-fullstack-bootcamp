@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Selector</title>
+
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <h1>Color Picker</h1>
+    <form>
+      <div class="color-selector">
+        <div class="color">
+          <label for="range-red" class="label">(R)ed</label>
+          <input type="range" class="slider" id="range-red" min="0" max="255" />
+          <input type="number" class="number" id="number-red" disabled />
+        </div>
+        <div class="color">
+          <label for="range-green" class="label">(G)reen</label>
+          <input
+            type="range"
+            class="slider"
+            id="range-green"
+            min="0"
+            max="255"
+          />
+          <input type="number" class="number" id="number-green" disabled />
+        </div>
+        <div class="color">
+          <label for="range-blue" class="label">(B)lue</label>
+          <input
+            type="range"
+            class="slider"
+            id="range-blue"
+            min="0"
+            max="255"
+          />
+          <input type="number" class="number" id="number-blue" disabled />
+        </div>
+        <div class="color-box" id="color-box">
+          <p id="hexa" class="hexa"></p>
+        </div>
+      </div>
+    </form>
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>
