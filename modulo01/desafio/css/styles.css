@@ -1,5 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@400;700&display=swap');
+
+body {
+  font: 400 14px 'Montserrat', sans-serif;
+  padding: 10px;
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+}
+
 h4 {
   margin: 20px 0;
+  font-family: 'Orbitron', sans-serif;
 }
 
 img {
