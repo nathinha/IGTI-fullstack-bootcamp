@@ -13,6 +13,11 @@ window.addEventListener('load', () => {
     event.preventDefault();
   });
 
+  // clear search box on reload and set focus
+  let input = document.querySelector('#search-terms');
+  input.value = '';
+  input.focus();
+
   foundUsersDiv = document.querySelector('#found-users');
   foundStatsDiv = document.querySelector('#found-stats');
 
@@ -44,7 +49,31 @@ async function fetchData() {
 }
 
 function handleSearch() {
-  //
+  let input = document.querySelector('#search-terms');
+  let button = document.querySelector('#search-button');
+
+  if (input.value.toLowerCase() === '') {
+    button.classList.add('disabled');
+  }
+
+  button.addEventListener('click', () => getResults(input.value.toLowerCase()));
+  input.addEventListener('keyup', () => {
+    const searchTerms = input.value.toLowerCase();
+    if (searchTerms === '') {
+      button.classList.add('disabled');
+    } else {
+      button.classList.remove('disabled');
+      getResults(searchTerms);
+    }
+  });
+}
+
+function getResults(input) {
+  let results = usersList.filter(
+    (user) => user.name.toLowerCase().indexOf(input) !== -1
+  );
+
+  render(results);
 }
 
 function render(users) {
