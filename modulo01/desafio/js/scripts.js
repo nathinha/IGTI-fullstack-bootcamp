@@ -61,6 +61,7 @@ function handleSearch() {
     const searchTerms = input.value.toLowerCase();
     if (searchTerms === '') {
       button.classList.add('disabled');
+      render([]);
     } else {
       button.classList.remove('disabled');
       getResults(searchTerms);
@@ -77,5 +78,57 @@ function getResults(input) {
 }
 
 function render(users) {
+  renderFoundUsers(users);
+  renderFoundStats(users);
+}
+
+function renderFoundUsers(users) {
+  foundUsersDiv.innerHTML = '';
+
+  let usersElement = document.createElement('div');
+  let searchText = document.querySelector('#results-summary');
+
+  if (users.length === 0) {
+    searchText.textContent = 'Results will appear here';
+  } else {
+    searchText.textContent = `${users.length} users found`;
+
+    users.forEach((user) => {
+      let userDiv = document.createElement('div');
+      userDiv.classList = 'user';
+      const image = createPhotoThumb(user.photo, user.name);
+      const info = createUserInfo(user.name, user.age);
+      userDiv.appendChild(image);
+      userDiv.appendChild(info);
+
+      usersElement.appendChild(userDiv);
+    });
+  }
+
+  foundUsersDiv.appendChild(usersElement);
+}
+
+function renderFoundStats(users) {
   //
+}
+
+function createPhotoThumb(src, alt) {
+  const photoDiv = document.createElement('div');
+  const photoImg = document.createElement('img');
+
+  photoImg.src = src;
+  photoImg.alt = alt;
+  photoDiv.appendChild(photoImg);
+
+  return photoDiv;
+}
+
+function createUserInfo(name, age) {
+  const infoDiv = document.createElement('div');
+  const infoSpan = document.createElement('span');
+
+  infoSpan.textContent = `${name}, ${age} years`;
+  infoDiv.appendChild(infoSpan);
+
+  return infoDiv;
 }

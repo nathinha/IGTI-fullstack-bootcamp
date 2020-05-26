@@ -2,9 +2,28 @@ h4 {
   margin: 20px 0;
 }
 
+img {
+  width: 50px;
+  height: 50px;
+  margin: 0 10px;
+
+  border-radius: 50%;
+}
+
 .results-box {
   border: 1px solid lightgrey;
   border-radius: 10px;
   margin: 20px 5px;
   padding: 5px;
+}
+
+.found-users {
+  display: flex;
+  flex-direction: column;
+}
+
+.user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
