@@ -1,4 +1,10 @@
-.busca {
-  display: flex;
-  flex-direction: row;
+h4 {
+  margin: 20px 0;
+}
+
+.results-box {
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  margin: 20px 5px;
+  padding: 5px;
 }

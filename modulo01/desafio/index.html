@@ -15,26 +15,28 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="center-align">Pesquisa de Usuários</h1>
+      <h1 class="center-align">User Search</h1>
 
       <div class="loading"></div>
 
       <form>
         <div class="input-field">
-          <input type="text" id="search_terms" />
-          <label for="search_terms">Busca</label>
+          <input type="text" id="search-terms" />
+          <label for="search-terms">Busca</label>
         </div>
-        <a class="waves-effect waves-light btn-small">BUSCAR</a>
+        <a id="search-button" class="waves-effect waves-light btn-small">
+          SEARCH
+        </a>
       </form>
 
-      <div class="results row">
-        <div class="found-users col s6">
-          <h2>X users found</h2>
-          <div class="users"></div>
+      <div class="row">
+        <div class="results-box col s8">
+          <h4>Results will appear here</h4>
+          <div id="found-users"></div>
         </div>
-        <div class="found-stats col s6">
-          <h2>Stats</h2>
-          <div class="stats"></div>
+        <div class="results-box col s3">
+          <h4>Stats</h4>
+          <div id="found-stats"></div>
         </div>
       </div>
     </div>

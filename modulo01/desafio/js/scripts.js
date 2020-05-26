@@ -1,3 +1,52 @@
+let usersList = [];
+
+let foundUsersDiv = null;
+let foundStatsDiv = null;
+
+let numberFormat = null;
+
 window.addEventListener('load', () => {
   console.log('Page loaded');
+
+  // prevent form submit
+  document.querySelector('form').addEventListener('submit', (event) => {
+    event.preventDefault();
+  });
+
+  foundUsersDiv = document.querySelector('#found-users');
+  foundStatsDiv = document.querySelector('#found-stats');
+
+  fetchData();
+  handleSearch();
+  render(usersList);
 });
+
+async function fetchData() {
+  const res = await fetch(
+    'https://randomuser.me/api/?seed=javascript&results=100&nat=BR&noinfo'
+  );
+  const json = await res.json();
+
+  usersList = json.results.map((user) => {
+    const { name, gender, dob, picture } = user;
+
+    return {
+      name: `${name.first} ${name.last}`,
+      gender,
+      age: dob.age,
+      photo: picture.thumbnail,
+    };
+  });
+
+  usersList.sort((a, b) => {
+    return a.name.localeCompare(b.name);
+  });
+}
+
+function handleSearch() {
+  //
+}
+
+function render(users) {
+  //
+}
