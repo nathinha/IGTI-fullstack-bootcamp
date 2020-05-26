@@ -21,6 +21,8 @@ window.addEventListener('load', () => {
   foundUsersDiv = document.querySelector('#found-users');
   foundStatsDiv = document.querySelector('#found-stats');
 
+  numberFormat = Intl.NumberFormat('pt-BR');
+
   fetchData();
   handleSearch();
   render(usersList);
@@ -109,7 +111,49 @@ function renderFoundUsers(users) {
 }
 
 function renderFoundStats(users) {
-  //
+  foundStatsDiv.innerHTML = '';
+
+  let statsElement = document.createElement('div');
+
+  if (users.length === 0) {
+    let searchText = document.createElement('div');
+    searchText.textContent = 'No stats available for the results';
+    statsElement.appendChild(searchText);
+  } else {
+    // sum of female users
+    let statsFemaleUsers = document.createElement('div');
+    const femaleUsers = users.reduce(
+      (acc, cur) => (cur.gender === 'female' ? ++acc : acc),
+      0
+    );
+    statsFemaleUsers.textContent = `Female users: ${femaleUsers}`;
+    statsElement.appendChild(statsFemaleUsers);
+
+    // sum of male users
+    let statsMaleUsers = document.createElement('div');
+    const maleUsers = users.reduce(
+      (acc, cur) => (cur.gender === 'male' ? ++acc : acc),
+      0
+    );
+    statsMaleUsers.textContent = `Female users: ${maleUsers}`;
+    statsElement.appendChild(statsMaleUsers);
+
+    // sum of all users' ages
+    let statsAgeSum = document.createElement('div');
+    const usersAgeSum = users.reduce((acc, cur) => acc + cur.age, 0);
+    statsAgeSum.textContent = `Sum of ages: ${usersAgeSum}`;
+    statsElement.appendChild(statsAgeSum);
+
+    // average age for all users
+    let statsAgeAvg = document.createElement('div');
+    const usersAgeAvg = usersAgeSum / users.length;
+    statsAgeAvg.textContent = `Average age: ${formatNumber(
+      usersAgeAvg.toFixed(2)
+    )}`;
+    statsElement.appendChild(statsAgeAvg);
+  }
+
+  foundStatsDiv.appendChild(statsElement);
 }
 
 function createPhotoThumb(src, alt) {
@@ -131,4 +175,8 @@ function createUserInfo(name, age) {
   infoDiv.appendChild(infoSpan);
 
   return infoDiv;
+}
+
+function formatNumber(number) {
+  return numberFormat.format(number);
 }
