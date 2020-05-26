@@ -135,7 +135,7 @@ function renderFoundStats(users) {
       (acc, cur) => (cur.gender === 'male' ? ++acc : acc),
       0
     );
-    statsMaleUsers.textContent = `Female users: ${maleUsers}`;
+    statsMaleUsers.textContent = `Male users: ${maleUsers}`;
     statsElement.appendChild(statsMaleUsers);
 
     // sum of all users' ages
