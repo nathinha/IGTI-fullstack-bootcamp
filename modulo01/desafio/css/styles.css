@@ -10,11 +10,38 @@ img {
   border-radius: 50%;
 }
 
+/* label color */
+.input-field label {
+  color: #607d8b !important;
+}
+/* label focus color */
+.input-field input[type='text']:focus + label {
+  color: #607d8b !important;
+}
+/* label underline focus color */
+.input-field input[type='text']:focus {
+  border-bottom: 1px solid #607d8b !important;
+  box-shadow: 0 1px 0 0 #607d8b !important;
+}
+/* valid color */
+.input-field input[type='text'].valid {
+  border-bottom: 1px solid #607d8b !important;
+  box-shadow: 0 1px 0 0 #607d8b !important;
+}
+/* invalid color */
+.input-field input[type='text'].invalid {
+  border-bottom: 1px solid #607d8b !important;
+  box-shadow: 0 1px 0 0 #607d8b !important;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #607d8b !important;
+}
+
 .results-box {
-  border: 1px solid lightgrey;
-  border-radius: 10px;
-  margin: 20px 5px;
-  padding: 5px;
+  border-radius: 5px;
+  padding: 5px 15px;
+  min-height: 150px !important;
 }
 
 .found-users {

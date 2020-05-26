@@ -15,28 +15,43 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="center-align">User Search</h1>
+      <h1 class="center-align blue-grey-text">User Search</h1>
 
       <div class="loading"></div>
 
       <form>
-        <div class="input-field">
-          <input type="text" id="search-terms" />
-          <label for="search-terms">Busca</label>
+        <div class="search-area row">
+          <div class="col s11 m11 l11">
+            <div class="input-field">
+              <input type="text" id="search-terms" />
+              <label for="search-terms">Search</label>
+            </div>
+          </div>
+          <div class="col s1 m1 l1">
+            <div class="search-button">
+              <a
+                id="search-button"
+                class="waves-effect waves-light blue-grey btn-small"
+              >
+                SEARCH
+              </a>
+            </div>
+          </div>
         </div>
-        <a id="search-button" class="waves-effect waves-light btn-small">
-          SEARCH
-        </a>
       </form>
 
       <div class="row">
-        <div class="results-box col s8">
-          <h4 id="results-summary"></h4>
-          <div id="found-users"></div>
+        <div class="col s8 m8 l8">
+          <div class="results-box z-depth-1 blue-grey lighten-4">
+            <h4 id="results-summary"></h4>
+            <div id="found-users"></div>
+          </div>
         </div>
-        <div class="results-box col s3">
-          <h4>Stats</h4>
-          <div id="found-stats"></div>
+        <div class="col s4 m4 l4">
+          <div class="results-box z-depth-1 blue-grey lighten-4">
+            <h4>Stats</h4>
+            <div id="found-stats"></div>
+          </div>
         </div>
       </div>
     </div>
