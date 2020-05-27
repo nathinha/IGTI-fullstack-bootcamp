@@ -5,7 +5,7 @@
 HTML, CSS and "vanilla" JavaScript.
 
 - [Class 09](https://nathinha.github.io/IGTI-fullstack-bootcamp/unit01/class09/)
-- [Hands On Task](https://nathinha.github.io/IGTI-fullstack-bootcamp/unit01/handsontask/)
+- [Hands On](https://nathinha.github.io/IGTI-fullstack-bootcamp/unit01/handson/)
 - [Class 17](https://nathinha.github.io/IGTI-fullstack-bootcamp/unit01/class17/)
 - [Challenge](https://nathinha.github.io/IGTI-fullstack-bootcamp/unit01/challenge)
 
