@@ -1,81 +1,51 @@
-window.addEventListener('load', onLoad);
+let gNamesList = ['André', 'Bia', 'Caroline', 'Denise', 'Eduardo'];
+let gCurrentIndex = null;
+let gIsEditing = false;
+let nameInput = null;
 
-var gNamesList = ['Um', 'Dois', 'Três', 'Quatro', 'Cinco'];
-var inputName = null;
-var isEditing = false;
-var currentIndex = null;
-
-function onLoad() {
-  console.log('Page completely loaded');
-
-  preventFormSubmit();
-
-  setFocus();
-  render();
-}
-
-function preventFormSubmit() {
+window.addEventListener('load', () => {
+  // prevent form submit
   document.querySelector('form').addEventListener('submit', (event) => {
     event.preventDefault();
   });
-}
 
-function setFocus() {
-  inputName = document.getElementById('inputName');
-  inputName.addEventListener('keyup', (event) => {
-    if (
-      (event.key === 'Enter' || event.key === 'Insert') &&
-      event.target.value.trim() !== ''
-    ) {
-      if (isEditing) {
-        gNamesList[currentIndex] = event.target.value;
-        isEditing = false;
+  handleInput();
+  renderNamesList();
+});
+
+const handleInput = () => {
+  nameInput = document.querySelector('#input-name');
+  nameInput.addEventListener('keyup', (event) => {
+    if (event.key === 'Enter' && event.target.value.trim() !== '') {
+      if (gIsEditing) {
+        gNamesList[gCurrentIndex] = event.target.value;
+        gIsEditing = false;
       } else {
         gNamesList.push(event.target.value);
       }
-      render();
-      event.target.value = '';
+      renderNamesList();
+      setFocus();
     }
   });
 
-  inputName.focus();
-}
+  setFocus();
+};
 
-function render() {
-  function createDeleteButton(index) {
-    var button = document.createElement('button');
-    button.classList.add('deleteButton');
-    button.textContent = 'x';
-    button.addEventListener('click', () => {
-      console.log(index);
-      gNamesList.splice(index, 1);
-      render();
-    });
-    return button;
-  }
+const setFocus = (value = null) => {
+  value === null ? (nameInput.value = '') : (nameInput.value = value);
+  nameInput.focus();
+};
 
-  function createClickableSpan(text, index) {
-    var span = document.createElement('span');
-    span.classList.add('clickable');
-    span.textContent = text;
-    span.addEventListener('click', () => {
-      inputName.value = text;
-      inputName.focus();
-      isEditing = true;
-      currentIndex = index;
-    });
-    return span;
-  }
-
-  var divNames = document.getElementById('names');
+const renderNamesList = () => {
+  var divNames = document.querySelector('#names-list');
   divNames.innerHTML = '';
 
   var ul = document.createElement('ul');
 
   gNamesList.forEach((element, index) => {
     var li = document.createElement('li');
-    var span = createClickableSpan(element, index);
     var button = createDeleteButton(index);
+    var span = createClickableSpan(element, index);
 
     li.appendChild(button);
     li.appendChild(span);
@@ -83,4 +53,45 @@ function render() {
   });
 
   divNames.appendChild(ul);
-}
+};
+
+const createDeleteButton = (index) => {
+  var button = document.createElement('a');
+  button.classList.add('waves-effect');
+  button.classList.add('waves-light');
+  button.classList.add('btn-small');
+  button.classList.add('btn-floating');
+  button.classList.add('red');
+  button.classList.add('darken-4');
+
+  var image = document.createElement('i');
+  image.classList.add('tiny');
+  image.classList.add('material-icons');
+  image.textContent = 'delete_forever';
+
+  button.appendChild(image);
+
+  button.addEventListener('click', () => {
+    gNamesList.splice(index, 1);
+    renderNamesList();
+    gIsEditing = false;
+    setFocus();
+  });
+  return button;
+};
+
+const createClickableSpan = (text, index) => {
+  var button = document.createElement('a');
+  button.classList.add('btn-small');
+  button.classList.add('btn-flat');
+  button.classList.add('white');
+  button.textContent = text;
+
+  button.addEventListener('click', () => {
+    gIsEditing = true;
+    setFocus(text);
+    gCurrentIndex = index;
+  });
+
+  return button;
+};

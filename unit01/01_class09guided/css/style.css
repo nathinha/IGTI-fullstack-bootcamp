@@ -1,17 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Righteous&display=swap');
 
 body {
-  font: 400 14px 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: lighter;
   padding: 10px;
 }
 
-h1 {
-  font-family: 'Orbitron', sans-serif;
+h1,
+h2 {
+  font-family: 'Righteous', sans-serif;
 }
 
 ul,
 li {
   list-style-type: none;
+}
+
+/* label color */
+.input-field label {
+  color: #0d47a1 !important;
+}
+/* label focus color */
+.input-field input[type='text']:focus + label {
+  color: #0d47a1 !important;
+}
+/* label underline focus color */
+.input-field input[type='text']:focus {
+  border-bottom: 1px solid #0d47a1 !important;
+  box-shadow: 0 1px 0 0 #0d47a1 !important;
+}
+/* valid color */
+.input-field input[type='text'].valid {
+  border-bottom: 1px solid #0d47a1 !important;
+  box-shadow: 0 1px 0 0 #0d47a1 !important;
+}
+/* invalid color */
+.input-field input[type='text'].invalid {
+  border-bottom: 1px solid #0d47a1 !important;
+  box-shadow: 0 1px 0 0 #0d47a1 !important;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #0d47a1 !important;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.registry {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
 }
 
 .clickable {

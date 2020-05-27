@@ -3,19 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Módulo 01 - Aula 09 - CRUD</title>
+    <title>Unit 01 - Class 09 - CRUD</title>
 
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <h1>Cadastro de Nomes</h1>
-    <form>
-      <label for="inputName">Nome:</label>
-      <input type="text" id="inputName" placeholder="Digite aqui um nome..." />
-    </form>
-    <h2>Nomes cadastrados até o momento</h2>
-    <div id="names"></div>
+    <div class="container">
+      <h1 class="center-align blue-text text-darken-4">Name Registration</h1>
+      <form>
+        <div class="row s12 m12 l12">
+          <div class="input-field">
+            <input type="text" id="input-name" />
+            <label for="input-name">Type a name here...</label>
+          </div>
+        </div>
+      </form>
+      <div class="registry row s12 m12 l12">
+        <h3 class="center-align blue-text text-darken-4">Registered names:</h3>
+        <div id="names-list"></div>
+      </div>
+    </div>
 
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./js/script.js"></script>
   </body>
 </html>
