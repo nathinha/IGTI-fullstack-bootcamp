@@ -3,47 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Color Selector</title>
+    <title>Unit 01 - Hands On - RGB Color Picker</title>
 
-    <link rel="stylesheet" href="./css/reset.css" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <h1>Color Picker</h1>
-    <form>
-      <div class="color-selector">
-        <div class="color">
-          <label for="range-red" class="label">(R)ed</label>
-          <input type="range" class="slider" id="range-red" min="0" max="255" />
-          <input type="number" class="number" id="number-red" disabled />
+    <div class="container">
+      <h1 class="center-align blue-text text-darken-4">
+        Color Picker
+      </h1>
+      <form>
+        <!-- RED picker -->
+        <div class="row valign-wrapper">
+          <div class="col s2 m2 l2">
+            <p class="right-align red-text">(R)ed</p>
+          </div>
+          <div class="col s8 m8 l8">
+            <p class="range-field range-red">
+              <input type="range" id="range-red" min="0" max="255" />
+            </p>
+          </div>
+          <div class="input-field col s2 m2 l2">
+            <input type="text" id="number-red" disabled />
+          </div>
         </div>
-        <div class="color">
-          <label for="range-green" class="label">(G)reen</label>
-          <input
-            type="range"
-            class="slider"
-            id="range-green"
-            min="0"
-            max="255"
-          />
-          <input type="number" class="number" id="number-green" disabled />
+
+        <!-- GREEN picker -->
+        <div class="row valign-wrapper">
+          <div class="col s2 m2 l2">
+            <p class="right-align green-text">(G)reen</p>
+          </div>
+          <div class="col s8 m8 l8">
+            <p class="range-field range-green">
+              <input type="range" id="range-green" min="0" max="255" />
+            </p>
+          </div>
+          <div class="input-field col s2 m2 l2">
+            <input type="text" id="number-green" disabled />
+          </div>
         </div>
-        <div class="color">
-          <label for="range-blue" class="label">(B)lue</label>
-          <input
-            type="range"
-            class="slider"
-            id="range-blue"
-            min="0"
-            max="255"
-          />
-          <input type="number" class="number" id="number-blue" disabled />
+
+        <!-- BLUE picker -->
+        <div class="row valign-wrapper">
+          <div class="col s2 m2 l2">
+            <p class="right-align blue-text">(B)lue</p>
+          </div>
+          <div class="col s8 m8 l8">
+            <p class="range-field range-blue">
+              <input type="range" id="range-blue" min="0" max="255" />
+            </p>
+          </div>
+          <div class="input-field col s2 m2 l2">
+            <input type="text" id="number-blue" disabled />
+          </div>
         </div>
-        <div class="color-box" id="color-box">
-          <p id="hexa" class="hexa"></p>
+
+        <!-- Color Box -->
+        <div class="row">
+          <div class="color-box col s12 m12 l12" id="color-box">
+            <h3 class="center-align" id="hexa"></h3>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./js/script.js"></script>
   </body>
 </html>
