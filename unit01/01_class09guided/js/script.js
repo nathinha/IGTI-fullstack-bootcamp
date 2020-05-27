@@ -37,15 +37,15 @@ const setFocus = (value = null) => {
 };
 
 const renderNamesList = () => {
-  var divNames = document.querySelector('#names-list');
+  let divNames = document.querySelector('#names-list');
   divNames.innerHTML = '';
 
-  var ul = document.createElement('ul');
+  let ul = document.createElement('ul');
 
   gNamesList.forEach((element, index) => {
-    var li = document.createElement('li');
-    var button = createDeleteButton(index);
-    var span = createClickableSpan(element, index);
+    let li = document.createElement('li');
+    let button = createDeleteButton(index);
+    let span = createClickableSpan(element, index);
 
     li.appendChild(button);
     li.appendChild(span);
@@ -56,17 +56,12 @@ const renderNamesList = () => {
 };
 
 const createDeleteButton = (index) => {
-  var button = document.createElement('a');
-  button.classList.add('waves-effect');
-  button.classList.add('waves-light');
-  button.classList.add('btn-small');
-  button.classList.add('btn-floating');
-  button.classList.add('red');
-  button.classList.add('darken-4');
+  let button = document.createElement('a');
+  button.classList =
+    'waves-effect waves-light btn-small btn-floating red darken-4';
 
-  var image = document.createElement('i');
-  image.classList.add('tiny');
-  image.classList.add('material-icons');
+  let image = document.createElement('i');
+  image.classList = 'tiny material-icons';
   image.textContent = 'delete_forever';
 
   button.appendChild(image);
@@ -81,10 +76,8 @@ const createDeleteButton = (index) => {
 };
 
 const createClickableSpan = (text, index) => {
-  var button = document.createElement('a');
-  button.classList.add('btn-small');
-  button.classList.add('btn-flat');
-  button.classList.add('white');
+  let button = document.createElement('a');
+  button.classList = 'btn-small btn-flat white';
   button.textContent = text;
 
   button.addEventListener('click', () => {
