@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&family=Raleway:wght@400;700&display=swap');
 
 body {
-  font: 400 14px 'Montserrat', sans-serif;
+  font: 400 14px 'Raleway', sans-serif;
   padding: 10px;
 }
 
 h1 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
 }
 
 h4 {
   margin: 20px 0;
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
 }
 
 img {
