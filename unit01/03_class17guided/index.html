@@ -3,30 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit 01 - Class 17 - Favorite Countries List</title>
 
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <!-- Compiled and minified CSS -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
     <link rel="stylesheet" href="./css/styles.css" />
-
-    <title>Aula 17 - Exercício Guiado</title>
   </head>
   <body>
-    <h1>Fav Countries</h1>
-    <div class="country-container">
-      <div class="countries-list">
-        <h5>Countries (<span id="countCountries"></span>)</h5>
-        <h6>Total population: <span id="totalPopulationCountries"></span></h6>
-        <div id="tabCountries"></div>
-      </div>
-      <div class="favorites-list">
-        <h5>Favorite Countries (<span id="countFavorites"></span>)</h5>
-        <h6>Total population: <span id="totalPopulationFavorites"></span></h6>
-        <div id="tabFavorites"></div>
+    <div class="container">
+      <h1 class="center-align blue-text text-darken-4">
+        Favorite Countries Picker
+      </h1>
+      <div class="row">
+        <div class="col s6 m6 l6">
+          <div class="countries-list z-depth-1">
+            <h5>Countries (<span id="countCountries"></span>)</h5>
+            <h6>
+              Total population: <span id="totalPopulationCountries"></span>
+            </h6>
+            <div id="tabCountries"></div>
+          </div>
+        </div>
+        <div class="col s6 m6 l6">
+          <div class="favorites-list z-depth-1">
+            <h5>Favorite Countries (<span id="countFavorites"></span>)</h5>
+            <h6>
+              Total population: <span id="totalPopulationFavorites"></span>
+            </h6>
+            <div id="tabFavorites"></div>
+          </div>
+        </div>
       </div>
     </div>
+
     <script src="./js/script.js"></script>
   </body>
 </html>

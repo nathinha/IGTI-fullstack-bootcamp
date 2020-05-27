@@ -13,8 +13,6 @@ let totalPopulationFavorites = 0;
 let numberFormat = null;
 
 window.addEventListener('load', () => {
-  console.log('Page completely loaded');
-
   tabCountries = document.querySelector('#tabCountries');
   tabFavorites = document.querySelector('#tabFavorites');
 
@@ -93,14 +91,20 @@ function renderCountries(countries, countriesDiv, text) {
 function createButton(id, text) {
   const buttonDiv = document.createElement('div');
   const buttonLink = document.createElement('a');
+  const image = document.createElement('i');
+  image.classList = 'tiny material-icons';
 
   buttonLink.id = id;
   if (text === '+') {
-    buttonLink.classList = 'waves-effect waves-light btn green';
-    buttonLink.textContent = '+';
+    buttonLink.classList =
+      'waves-effect waves-light btn btn-floating green darken-4';
+    image.textContent = 'add';
+    buttonLink.appendChild(image);
   } else if (text === '-') {
-    buttonLink.classList = 'waves-effect waves-light btn red';
-    buttonLink.textContent = '-';
+    buttonLink.classList =
+      'waves-effect waves-light btn btn-floating red darken-4';
+    image.textContent = 'delete_forever';
+    buttonLink.appendChild(image);
   }
 
   buttonDiv.appendChild(buttonLink);
@@ -156,24 +160,11 @@ function handleCountryButtons() {
 
   countriesButtons.forEach((button) => {
     button.addEventListener('click', () => addToFavorites(button.id));
-    // button.addEventListener('click', () => {
-    //   moveCountry(allCountries, favCountries, button.id);
-    //   console.log(allCountries);
-    //   console.log(favCountries);
-    // });
   });
 
   favoritesButtons.forEach((button) => {
     button.addEventListener('click', () => removeFromFavorites(button.id));
   });
-}
-
-function moveCountry(fromList, toList, id) {
-  const country = fromList.find((country) => country.id === id);
-  toList = [...toList, country];
-  fromList = fromList.filter((country) => country.id !== id);
-
-  render();
 }
 
 function addToFavorites(id) {

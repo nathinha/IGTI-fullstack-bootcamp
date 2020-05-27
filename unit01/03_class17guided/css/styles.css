@@ -1,12 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Righteous&display=swap');
 
 body {
-  font: 400 14px 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: lighter;
   padding: 10px;
 }
 
-h1 {
-  font-family: 'Orbitron', sans-serif;
+h1,
+h5,
+h6 {
+  font-family: 'Righteous', sans-serif;
 }
 
 img {
@@ -15,10 +18,6 @@ img {
   margin: 0 10px;
 
   border-radius: 50%;
-}
-
-.country-container {
-  display: flex;
 }
 
 .country {
