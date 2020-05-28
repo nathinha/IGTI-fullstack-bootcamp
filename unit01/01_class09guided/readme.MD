@@ -1,6 +1,6 @@
 # CRUD (Create, Read, Update< Delete)
-## Objectives
-* Create an application that allows the user to add, edit and remove names from a list.
+## Objective
+Create an application that allows the user to add, edit and remove names from a list.
 
 ## Requirements
 ### User Stories
