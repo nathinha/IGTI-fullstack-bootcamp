@@ -4,13 +4,18 @@
 Create an application that filters a given list of users by name and show statistics over the filtered data.
 
 To exercise some concepts as:
-* HTML elements;
-* CSS;
-* 'Vanilla' JavaScript;
-* DOM handling with JavaScript;
-* JavaScript value formatting (Intl);
-* Array methods (map, filter, reduce, find and sort),
-* HTTP requests using the fetch command.
+* HTML elements
+* CSS
+* 'Vanilla' JavaScript
+  * DOM handling
+  * Value formatting (Intl)
+  * Array methods
+    * map
+    * filter
+    * reduce
+    * find
+    * sort
+  * HTTP requests using the fetch command.
 
 ## Requirements
 * Get data from 'https://randomuser.me/api/?seed=javascript&results=100&nat=BR&noinfo' on application load
@@ -32,7 +37,7 @@ To exercise some concepts as:
       * Sum of ages
       * Age average
 
-## Tips for Development
+## Development Tips
 
 * Data to be mapped from the API
   * name: name.first + name.last
