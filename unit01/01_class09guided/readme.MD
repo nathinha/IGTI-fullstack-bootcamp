@@ -1,4 +1,4 @@
-# CRUD (Create, Read, Update< Delete)
+# Name Registration (aka CRUD)
 ## Objective
 Create an application that allows the user to add, edit and remove names from a list.
 
