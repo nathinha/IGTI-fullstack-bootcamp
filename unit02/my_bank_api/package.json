@@ -1,0 +1,15 @@
+{
+  "name": "my_bank_api",
+  "version": "1.0.0",
+  "description": "API to create and access an account at MyBank.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nathalia Rippel",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "type": "module"
+}
