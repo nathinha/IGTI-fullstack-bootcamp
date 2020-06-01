@@ -8,6 +8,8 @@ router.post('/', (req, res) => {
 
   fs.readFile(gFileName, gFileEnc, (err, fd) => {
     try {
+      if (err) throw err;
+
       let json = JSON.parse(fd);
       account = {
         id: json.nextId++,
@@ -17,6 +19,8 @@ router.post('/', (req, res) => {
 
       fs.writeFile(gFileName, JSON.stringify(json), (err) => {
         try {
+          if (err) throw err;
+
           res.send({ id: account.id });
         } catch {
           res.status(500).send({ error: err.message });
@@ -31,6 +35,8 @@ router.post('/', (req, res) => {
 router.get('/', (_, res) => {
   fs.readFile(gFileName, gFileEnc, (err, data) => {
     try {
+      if (err) throw err;
+
       let json = JSON.parse(data);
       delete json.nextId;
       res.send(json);
