@@ -133,3 +133,39 @@ router.put('/', (req, res) => {
     }
   });
 });
+
+router.post('/transaction', (req, res) => {
+  let params = req.body;
+  let status = 200;
+
+  fs.readFile(gFileName, gFileEnc, (err, fd) => {
+    try {
+      if (err) throw err;
+
+      let json = JSON.parse(fd);
+      let accountIdx = json.accounts.findIndex(
+        (account) => account.id === params.id
+      );
+
+      if (
+        params.value < 0 &&
+        json.accounts[accountIdx].balance + params.value < 0
+      ) {
+        throw new Error('Insuficient funds');
+      }
+
+      json.accounts[accountIdx].balance += params.value;
+
+      fs.writeFile(gFileName, JSON.stringify(json), (err) => {
+        try {
+          if (err) throw err;
+          res.end();
+        } catch (error) {
+          res.status(500).send({ error: error.message });
+        }
+      });
+    } catch (error) {
+      res.status(400).send({ error: error.message });
+    }
+  });
+});
