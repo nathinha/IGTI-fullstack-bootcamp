@@ -22,12 +22,12 @@ router.post('/', (req, res) => {
           if (err) throw err;
 
           res.send({ id: account.id });
-        } catch {
-          res.status(500).send({ error: err.message });
+        } catch (error) {
+          res.status(500).send({ error: error.message });
         }
       });
     } catch (error) {
-      res.status(500).send({ error: err.message });
+      res.status(500).send({ error: error.message });
     }
   });
 });
@@ -40,8 +40,8 @@ router.get('/', (_, res) => {
       let json = JSON.parse(data);
       delete json.nextId;
       res.send(json);
-    } catch {
-      res.status(500).send({ error: err.message });
+    } catch (error) {
+      res.status(500).send({ error: error.message });
     }
   });
 });
@@ -67,9 +67,40 @@ router.get('/:id', (req, res) => {
         status = 404;
         throw new Error('ID not found');
       }
-    } catch (err) {
+    } catch (error) {
       if (status == 200) status = 500;
-      res.status(status).send({ error: err.message });
+      res.status(status).send({ error: error.message });
+    }
+  });
+});
+
+router.delete('/:id', (req, res) => {
+  let status = 200;
+
+  fs.readFile(gFileName, gFileEnc, (err, data) => {
+    try {
+      if (err) throw err;
+
+      let id = parseInt(req.params.id);
+      if (isNaN(id)) {
+        status = 400;
+        throw new Error('Invalid parameter');
+      }
+
+      let json = JSON.parse(data);
+      let accounts = json.accounts.filter((account) => account.id !== id);
+      json.accounts = accounts;
+      fs.writeFile(gFileName, JSON.stringify(json), (err) => {
+        try {
+          if (err) throw err;
+          res.end();
+        } catch (error) {
+          res.status(500).send({ error: error.message });
+        }
+      });
+    } catch (error) {
+      if (status == 200) status = 500;
+      res.status(status).send({ error: error.message });
     }
   });
 });
