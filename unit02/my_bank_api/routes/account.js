@@ -1,65 +1,52 @@
 import express from 'express';
-import fs from 'fs';
+import { promises as fs } from 'fs';
 
 export var router = express.Router();
 
 router.post('/', (req, res) => {
-  let account = req.body;
-
-  fs.readFile(gFileName, gFileEnc, (err, fd) => {
-    try {
-      if (err) throw err;
-
+  fs.readFile(gFileName, gFileEnc)
+    .then((fd) => {
       let json = JSON.parse(fd);
+      let account = req.body;
       account = {
         id: json.nextId++,
         ...account,
       };
       json.accounts.push(account);
 
-      fs.writeFile(gFileName, JSON.stringify(json), (err) => {
-        try {
-          if (err) throw err;
-
-          res.send({ id: account.id });
-        } catch (error) {
-          res.status(500).send({ error: error.message });
-        }
+      fs.writeFile(gFileName, JSON.stringify(json)).then((fd) => {
+        res.send({ id: account.id });
       });
-    } catch (error) {
-      res.status(500).send({ error: error.message });
-    }
-  });
+    })
+    .catch((err) => {
+      res.status(500).send({ error: err.message });
+    });
 });
 
 router.get('/', (_, res) => {
-  fs.readFile(gFileName, gFileEnc, (err, data) => {
-    try {
-      if (err) throw err;
-
-      let json = JSON.parse(data);
+  fs.readFile(gFileName, gFileEnc)
+    .then((fd) => {
+      let json = JSON.parse(fd);
       delete json.nextId;
       res.send(json);
-    } catch (error) {
-      res.status(500).send({ error: error.message });
-    }
-  });
+    })
+    .catch((err) => {
+      res.status(500).send({ error: err.message });
+    });
 });
 
 router.get('/:id', (req, res) => {
   let status = 200;
-  let id = parseInt(req.params.id);
 
-  fs.readFile(gFileName, gFileEnc, (err, data) => {
-    try {
-      if (err) throw err;
-
+  fs.readFile(gFileName, gFileEnc)
+    .then((fd) => {
+      const id = parseInt(req.params.id);
       if (isNaN(id)) {
         status = 400;
         throw new Error('Invalid parameter');
       }
 
-      let json = JSON.parse(data);
+      const json = JSON.parse(fd);
       const account = json.accounts.find((account) => account.id === id);
       if (account) {
         res.send(account);
@@ -67,105 +54,93 @@ router.get('/:id', (req, res) => {
         status = 404;
         throw new Error('ID not found');
       }
-    } catch (error) {
+    })
+    .catch((err) => {
       if (status == 200) status = 500;
-      res.status(status).send({ error: error.message });
-    }
-  });
+      res.status(status).send({ error: err.message });
+    });
 });
 
 router.delete('/:id', (req, res) => {
   let status = 200;
 
-  fs.readFile(gFileName, gFileEnc, (err, data) => {
-    try {
-      if (err) throw err;
-
-      let id = parseInt(req.params.id);
+  fs.readFile(gFileName, gFileEnc)
+    .then((fd) => {
+      const id = parseInt(req.params.id);
       if (isNaN(id)) {
         status = 400;
-        throw new Error('Invalid parameter');
+        throw new Error('Invalid account identifier');
       }
 
-      let json = JSON.parse(data);
-      let accounts = json.accounts.filter((account) => account.id !== id);
+      let json = JSON.parse(fd);
+      const account = json.accounts.find((account) => account.id === id);
+      if (!account) {
+        status = 404;
+        throw new Error('Account not found');
+      }
+
+      const accounts = json.accounts.filter((account) => account.id !== id);
       json.accounts = accounts;
-      fs.writeFile(gFileName, JSON.stringify(json), (err) => {
-        try {
-          if (err) throw err;
-          res.end();
-        } catch (error) {
-          res.status(500).send({ error: error.message });
-        }
+      fs.writeFile(gFileName, JSON.stringify(json)).then(() => {
+        res.end();
       });
-    } catch (error) {
+    })
+    .catch((err) => {
       if (status == 200) status = 500;
-      res.status(status).send({ error: error.message });
-    }
-  });
+      res.status(status).send({ error: err.message });
+    });
 });
 
 router.put('/', (req, res) => {
-  let newData = req.body;
-
-  fs.readFile(gFileName, gFileEnc, (err, fd) => {
-    try {
-      if (err) throw err;
-
+  fs.readFile(gFileName, gFileEnc)
+    .then((fd) => {
       let json = JSON.parse(fd);
       let accountIdx = json.accounts.findIndex(
         (account) => account.id === newData.id
       );
 
+      let newData = req.body;
       json.accounts[accountIdx] = newData;
 
-      fs.writeFile(gFileName, JSON.stringify(json), (err) => {
-        try {
-          if (err) throw err;
-
-          res.end();
-        } catch (error) {
-          res.status(500).send({ error: error.message });
-        }
+      fs.writeFile(gFileName, JSON.stringify(json)).then(() => {
+        res.end();
       });
-    } catch (error) {
-      res.status(500).send({ error: error.message });
-    }
-  });
+    })
+    .catch((err) => {
+      res.status(500).send({ error: err.message });
+    });
 });
 
-router.post('/transaction', (req, res) => {
-  let params = req.body;
+router.patch('/transaction', (req, res) => {
   let status = 200;
 
-  fs.readFile(gFileName, gFileEnc, (err, fd) => {
-    try {
-      if (err) throw err;
-
+  fs.readFile(gFileName, gFileEnc)
+    .then((fd) => {
       let json = JSON.parse(fd);
+      let params = req.body;
       let accountIdx = json.accounts.findIndex(
         (account) => account.id === params.id
       );
+
+      if (accountIdx === -1) {
+        status = 404;
+        throw new Error('Account not found');
+      }
 
       if (
         params.value < 0 &&
         json.accounts[accountIdx].balance + params.value < 0
       ) {
+        status = 400;
         throw new Error('Insuficient funds');
       }
-
       json.accounts[accountIdx].balance += params.value;
-
-      fs.writeFile(gFileName, JSON.stringify(json), (err) => {
-        try {
-          if (err) throw err;
-          res.end();
-        } catch (error) {
-          res.status(500).send({ error: error.message });
-        }
+      fs.writeFile(gFileName, JSON.stringify(json)).then(() => {
+        res.end();
       });
-    } catch (error) {
-      res.status(400).send({ error: error.message });
-    }
-  });
+    })
+    .catch((err) => {
+      if (status == 200) status = 500;
+      res.status(status).send({ error: err.message });
+    });
 });
