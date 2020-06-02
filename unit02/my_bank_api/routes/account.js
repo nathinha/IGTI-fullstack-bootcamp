@@ -104,3 +104,32 @@ router.delete('/:id', (req, res) => {
     }
   });
 });
+
+router.put('/', (req, res) => {
+  let newData = req.body;
+
+  fs.readFile(gFileName, gFileEnc, (err, fd) => {
+    try {
+      if (err) throw err;
+
+      let json = JSON.parse(fd);
+      let accountIdx = json.accounts.findIndex(
+        (account) => account.id === newData.id
+      );
+
+      json.accounts[accountIdx] = newData;
+
+      fs.writeFile(gFileName, JSON.stringify(json), (err) => {
+        try {
+          if (err) throw err;
+
+          res.end();
+        } catch (error) {
+          res.status(500).send({ error: error.message });
+        }
+      });
+    } catch (error) {
+      res.status(500).send({ error: error.message });
+    }
+  });
+});
