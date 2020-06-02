@@ -12,14 +12,14 @@ app.use('/account', accountRouter);
 global.gFileName = './accounts.json';
 global.gFileEnc = 'utf8';
 
-app.listen(port, () => {
-  fs.readFile(gFileName, gFileEnc).catch(() => {
+app.listen(port, async () => {
+  try {
+    await fs.readFile(gFileName, gFileEnc);
+  } catch (err) {
     const initJson = {
       nextId: 1,
       accounts: [],
     };
-    fs.writeFile(gFileName, JSON.stringify(initJson)).catch((err) => {
-      console.log(err);
-    });
-  });
+    await fs.writeFile(gFileName, JSON.stringify(initJson));
+  }
 });
