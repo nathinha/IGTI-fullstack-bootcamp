@@ -17,8 +17,12 @@ router.post('/', async (req, res) => {
     json.accounts.push(account);
 
     await fs.writeFile(gFileName, JSON.stringify(json));
+
     res.send({ id: account.id });
+
+    gLogger.info(`POST /account - id[${account.id}] created`);
   } catch (err) {
+    gLogger.error(`POST /account - ${err.message}`);
     res.status(500).send({ error: err.message });
   }
 });
@@ -29,17 +33,19 @@ router.get('/', async (_, res) => {
     let json = JSON.parse(fd);
     delete json.nextId;
     res.send(json);
+    gLogger.info(`GET /account - ${JSON.stringify(json)}`);
   } catch (err) {
+    gLogger.error(`GET /account - ${err.message}`);
     res.status(500).send({ error: err.message });
   }
 });
 
 router.get('/:id', async (req, res) => {
   let status = 200;
+  const id = parseInt(req.params.id);
 
   try {
     let fd = await fs.readFile(gFileName, gFileEnc);
-    const id = parseInt(req.params.id);
     if (isNaN(id)) {
       status = 400;
       throw new Error('Invalid account identifier');
@@ -47,24 +53,27 @@ router.get('/:id', async (req, res) => {
 
     const json = JSON.parse(fd);
     const account = json.accounts.find((account) => account.id === id);
-    if (account) {
-      res.send(account);
-    } else {
+    if (!account) {
       status = 404;
       throw new Error('Account not found');
+    } else {
+      gLogger.info(`GET /account/:id - ${JSON.stringify(account)}`);
+      res.send(account);
     }
   } catch (err) {
     if (status == 200) status = 500;
+
+    gLogger.error(`GET /account/:id - id[${id}] - ${err.message}`);
     res.status(status).send({ error: err.message });
   }
 });
 
 router.delete('/:id', async (req, res) => {
   let status = 200;
+  const id = parseInt(req.params.id);
 
   try {
     let fd = await fs.readFile(gFileName, gFileEnc);
-    const id = parseInt(req.params.id);
     if (isNaN(id)) {
       status = 400;
       throw new Error('Invalid account identifier');
@@ -80,22 +89,29 @@ router.delete('/:id', async (req, res) => {
     const accounts = json.accounts.filter((account) => account.id !== id);
     json.accounts = accounts;
     await fs.writeFile(gFileName, JSON.stringify(json));
+
+    gLogger.info(
+      `DELETE /account/:id - id[${id}] - ${JSON.stringify(account)}`
+    );
     res.end();
   } catch (err) {
     if (status == 200) status = 500;
+
+    gLogger.error(`DELETE /account/:id - id[${id}] - ${err.message}`);
     res.status(status).send({ error: err.message });
   }
 });
 
 router.put('/', async (req, res) => {
   let status = 200;
-  let newData = req.body;
+  let params = req.body;
 
   try {
     let fd = await fs.readFile(gFileName, gFileEnc);
     let json = JSON.parse(fd);
+
     let accountIdx = json.accounts.findIndex(
-      (account) => account.id === newData.id
+      (account) => account.id === params.id
     );
 
     if (accountIdx < 0) {
@@ -103,23 +119,28 @@ router.put('/', async (req, res) => {
       throw new Error('Account not found');
     }
 
-    json.accounts[accountIdx] = newData;
-
+    json.accounts[accountIdx] = params;
     await fs.writeFile(gFileName, JSON.stringify(json));
+
+    gLogger.info(
+      `PUT /account - id[${accountIdx}] - ${JSON.stringify(params)}`
+    );
     res.end();
   } catch (err) {
     if (status == 200) status = 500;
+
+    gLogger.error(`PUT /account - id[${params.id}] - ${err.message}`);
     res.status(status).send({ error: err.message });
   }
 });
 
 router.patch('/transaction', async (req, res) => {
   let status = 200;
+  let params = req.body;
 
   try {
     let fd = await fs.readFile(gFileName, gFileEnc);
     let json = JSON.parse(fd);
-    let params = req.body;
     let accountIdx = json.accounts.findIndex(
       (account) => account.id === params.id
     );
@@ -136,11 +157,20 @@ router.patch('/transaction', async (req, res) => {
       status = 400;
       throw new Error('Insuficient funds');
     }
+
     json.accounts[accountIdx].balance += params.value;
     await fs.writeFile(gFileName, JSON.stringify(json));
+
+    gLogger.info(
+      `PATCH /account - id[${accountIdx}] - ${JSON.stringify(
+        json.accounts[accountIdx]
+      )}`
+    );
     res.end();
   } catch (err) {
     if (status == 200) status = 500;
+
+    gLogger.error(`PATCH /account - id[${params.id}] - ${err.message}`);
     res.status(status).send({ error: err.message });
   }
 });

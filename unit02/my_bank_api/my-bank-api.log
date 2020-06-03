@@ -1,0 +1,63 @@
+2020-06-03T00:31:50.276Z [my-bank-api] info: RESTful service started
+2020-06-03T00:35:44.797Z [my-bank-api] info: RESTful service started
+2020-06-03T00:35:52.206Z [my-bank-api] info: POST /account - id[1] created
+2020-06-03T00:35:53.823Z [my-bank-api] info: POST /account - id[2] created
+2020-06-03T00:35:54.387Z [my-bank-api] info: POST /account - id[3] created
+2020-06-03T00:35:55.014Z [my-bank-api] info: POST /account - id[4] created
+2020-06-03T00:35:55.596Z [my-bank-api] info: POST /account - id[5] created
+2020-06-03T00:35:56.206Z [my-bank-api] info: POST /account - id[6] created
+2020-06-03T00:40:22.604Z [my-bank-api] info: RESTful service started
+2020-06-03T00:40:26.271Z [my-bank-api] info: RESTful service started
+2020-06-03T00:42:34.543Z [my-bank-api] info: RESTful service started
+2020-06-03T00:43:29.707Z [my-bank-api] info: RESTful service started
+2020-06-03T00:44:26.670Z [my-bank-api] info: RESTful service started
+2020-06-03T00:44:34.718Z [my-bank-api] info: POST /account - id[7] created
+2020-06-03T00:45:54.047Z [my-bank-api] info: RESTful service started
+2020-06-03T00:45:56.681Z [my-bank-api] error: GET /account - {"accounts":[{"id":1,"name":"Nathalia Rippel","balance":0},{"id":2,"name":"Nathalia Rippel","balance":0},{"id":3,"name":"Nathalia Rippel","balance":0},{"id":4,"name":"Nathalia Rippel","balance":0},{"id":5,"name":"Nathalia Rippel","balance":0},{"id":6,"name":"Nathalia Rippel","balance":0},{"id":7,"name":"Nathalia Rippel","balance":0}]}
+2020-06-03T00:47:14.121Z [my-bank-api] info: RESTful service started
+2020-06-03T00:47:19.382Z [my-bank-api] info: GET /account/:id - {"nextId":8,"accounts":[{"id":1,"name":"Nathalia Rippel","balance":0},{"id":2,"name":"Nathalia Rippel","balance":0},{"id":3,"name":"Nathalia Rippel","balance":0},{"id":4,"name":"Nathalia Rippel","balance":0},{"id":5,"name":"Nathalia Rippel","balance":0},{"id":6,"name":"Nathalia Rippel","balance":0},{"id":7,"name":"Nathalia Rippel","balance":0}]}
+2020-06-03T00:47:47.628Z [my-bank-api] info: RESTful service started
+2020-06-03T00:48:36.520Z [my-bank-api] info: RESTful service started
+2020-06-03T00:48:46.043Z [my-bank-api] info: RESTful service started
+2020-06-03T00:50:18.616Z [my-bank-api] info: RESTful service started
+2020-06-03T00:50:47.816Z [my-bank-api] info: RESTful service started
+2020-06-03T00:53:24.907Z [my-bank-api] info: RESTful service started
+2020-06-03T00:54:16.061Z [my-bank-api] info: RESTful service started
+2020-06-03T00:54:57.217Z [my-bank-api] info: RESTful service started
+2020-06-03T00:55:27.972Z [my-bank-api] info: RESTful service started
+2020-06-03T00:56:20.537Z [my-bank-api] info: RESTful service started
+2020-06-03T00:56:26.319Z [my-bank-api] info: RESTful service started
+2020-06-03T00:56:31.031Z [my-bank-api] info: POST /account - id[8] created
+2020-06-03T00:56:35.754Z [my-bank-api] info: GET /account - {"accounts":[{"id":1,"name":"Nathalia Rippel","balance":0},{"id":2,"name":"Nathalia Rippel","balance":0},{"id":3,"name":"Nathalia Rippel","balance":0},{"id":4,"name":"Nathalia Rippel","balance":0},{"id":5,"name":"Nathalia Rippel","balance":0},{"id":6,"name":"Nathalia Rippel","balance":0},{"id":7,"name":"Nathalia Rippel","balance":0},{"id":8,"name":"Nathalia Rippel","balance":0}]}
+2020-06-03T00:57:23.996Z [my-bank-api] info: RESTful service started
+2020-06-03T00:57:27.984Z [my-bank-api] error: GET /account/:id - id[NaN] - Invalid account identifier
+2020-06-03T00:57:43.152Z [my-bank-api] error: GET /account/:id - id[99] - Account not found
+2020-06-03T00:57:50.620Z [my-bank-api] error: GET /account/:id - id[9] - Account not found
+2020-06-03T00:57:54.873Z [my-bank-api] info: GET /account/:id - {"id":8,"name":"Nathalia Rippel","balance":0}
+2020-06-03T00:58:11.549Z [my-bank-api] info: DELETE /account/:id - id[2] - {"id":2,"name":"Nathalia Rippel","balance":0}
+2020-06-03T00:58:31.428Z [my-bank-api] info: PUT /account - id[3] - {"id":5,"name":"nATH Rippel","balance":200}
+2020-06-03T00:59:19.612Z [my-bank-api] info: RESTful service started
+2020-06-03T00:59:25.884Z [my-bank-api] error: DELETE /account/:id - id[2] - Account not found
+2020-06-03T00:59:32.114Z [my-bank-api] error: DELETE /account/:id - id[NaN] - Invalid account identifier
+2020-06-03T01:00:23.494Z [my-bank-api] info: PUT /account - id[5] - {"id":7,"name":"nATH Rippel","balance":200}
+2020-06-03T01:01:31.271Z [my-bank-api] info: RESTful service started
+2020-06-03T01:02:25.540Z [my-bank-api] info: RESTful service started
+2020-06-03T01:03:49.789Z [my-bank-api] info: RESTful service started
+2020-06-03T01:05:03.740Z [my-bank-api] info: RESTful service started
+2020-06-03T01:05:30.823Z [my-bank-api] info: RESTful service started
+2020-06-03T01:05:34.524Z [my-bank-api] error: PUT /account - id[99] - Account not found
+2020-06-03T01:07:36.652Z [my-bank-api] error: PUT /account - id[kkk] - Account not found
+2020-06-03T01:07:57.173Z [my-bank-api] error: PUT /account - id[kkk] - Account not found
+2020-06-03T01:07:59.807Z [my-bank-api] error: PUT /account - id[kkk] - Account not found
+2020-06-03T01:08:21.360Z [my-bank-api] error: PUT /account - id[kkk] - Account not found
+2020-06-03T01:08:22.285Z [my-bank-api] error: PUT /account - id[kkk] - Account not found
+2020-06-03T01:10:02.196Z [my-bank-api] info: RESTful service started
+2020-06-03T01:10:02.852Z [my-bank-api] error: PATCH /account - id[3] - Insuficient funds
+2020-06-03T01:10:24.633Z [my-bank-api] error: PATCH /account - id[3] - Insuficient funds
+2020-06-03T01:11:13.667Z [my-bank-api] error: PATCH /account - id[99] - Account not found
+2020-06-03T01:11:36.994Z [my-bank-api] info: RESTful service started
+2020-06-03T01:11:39.574Z [my-bank-api] error: PATCH /account - id[99] - Account not found
+2020-06-03T01:11:42.265Z [my-bank-api] error: PATCH /account - id[99] - Account not found
+2020-06-03T01:11:50.175Z [my-bank-api] error: PATCH /account - id[9] - Account not found
+2020-06-03T01:11:55.111Z [my-bank-api] error: PATCH /account - id[5] - Insuficient funds
+2020-06-03T01:12:08.392Z [my-bank-api] info: PATCH /account - id[3] - {"id":5,"name":"nATH Rippel","balance":500}
