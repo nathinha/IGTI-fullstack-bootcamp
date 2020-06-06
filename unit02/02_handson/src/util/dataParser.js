@@ -1,36 +1,36 @@
+import { logger } from '../util/logger.js';
 import { promises as fs } from 'fs';
 import appRoot from 'app-root-path';
 
 const folderRoot = `${appRoot}/data`;
 const folderStates = `${folderRoot}/generated`;
 
-const fileStates = `${folderRoot}/Estados.json`;
-const fileCities = `${folderRoot}/Cidades.json`;
-const encoding = 'utf8';
+export let statesList = [];
+export let citiesList = [];
 
 export async function prepareData() {
   try {
     await prepareFolder();
 
-    const fdStates = await fs.readFile(fileStates, encoding);
-    const fdCities = await fs.readFile(fileCities, encoding);
+    statesList = JSON.parse(
+      await fs.readFile(`${folderRoot}/Estados.json`, 'utf8')
+    );
+    citiesList = JSON.parse(
+      await fs.readFile(`${folderRoot}/Cidades.json`, 'utf8')
+    );
 
-    let jsonStates = JSON.parse(fdStates);
-    let jsonCities = JSON.parse(fdCities);
-
-    for (const [_, state] of jsonStates.entries()) {
-      let currentState = jsonCities.filter((city) => city.Estado === state.ID);
-      currentState.sort((a, b) => {
-        return a.Nome.localeCompare(b.Nome);
-      });
-
-      await fs.writeFile(
-        `${folderStates}/${state.Sigla}.json`,
-        JSON.stringify(currentState)
+    for (let idx = 0; idx < statesList.length; idx++) {
+      let current = citiesList.filter(
+        (city) => city.Estado === statesList[idx].ID
       );
+      await fs.writeFile(
+        `${folderStates}/${statesList[idx].Sigla}.json`,
+        JSON.stringify(current)
+      );
+      statesList[idx].cityQty = `${current.length}`;
     }
   } catch (err) {
-    console.log(err);
+    logger.error(err);
   }
 }
 

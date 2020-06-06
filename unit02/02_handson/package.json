@@ -2,10 +2,10 @@
   "name": "02_handson",
   "version": "1.0.0",
   "description": "Create a Node.js backend application that is dumb, does not acts as a server and just executes file processing activities.  \r ~~Yes, someone is a little mad that a hands on task on Node.js does not involve serving.~~",
-  "main": "src/server.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --experimental-modules src/server.js"
+    "start": "nodemon --experimental-modules src/index.js"
   },
   "keywords": [],
   "author": "",
