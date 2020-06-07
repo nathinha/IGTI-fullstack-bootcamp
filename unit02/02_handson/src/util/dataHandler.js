@@ -18,11 +18,14 @@ export function getTop5MoreCities() {
     statesList.sort((a, b) => b.cityQty - a.cityQty);
 
     let top5More = '';
+    let top5MoreNumber = 0;
     for (let idx = 0; idx < 5; idx++) {
       top5More += `'${statesList[idx].Sigla}: ${statesList[idx].cityQty}',`;
+      top5MoreNumber += parseInt(statesList[idx].cityQty);
     }
 
     logger.info(top5More);
+    logger.info(`Total number of cities: ${top5MoreNumber}`);
   } catch (err) {
     logger.error(err);
   }
@@ -33,11 +36,14 @@ export function getTop5LessCities() {
     statesList.sort((a, b) => a.cityQty - b.cityQty);
 
     let top5Less = '';
+    let top5LessNumber = 0;
     for (let idx = 0; idx < 5; idx++) {
       top5Less += `'${statesList[idx].Sigla}: ${statesList[idx].cityQty}',`;
+      top5LessNumber += parseInt(statesList[idx].cityQty);
     }
 
     logger.info(top5Less);
+    logger.info(`Total number of cities: ${top5LessNumber}`);
   } catch (err) {
     logger.error(err);
   }
