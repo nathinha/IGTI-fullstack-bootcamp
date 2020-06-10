@@ -19,7 +19,7 @@ studentRouter.get('/', async (req, res) => {
     if (!grades || !grades.length) {
       status = 404;
       throw new Error(
-        `GET /student - grades not found - student: '${params.student}'`
+        `GET /student - grades not found - params: '${JSON.stringify(params)}'`
       );
     }
 
