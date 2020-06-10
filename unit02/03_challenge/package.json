@@ -1,0 +1,19 @@
+{
+  "name": "grades-control-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --experimental-modules src/server.js"
+  },
+  "author": "Nathalia Rippel",
+  "license": "ISC",
+  "dependencies": {
+    "app-root-path": "^3.0.0",
+    "express": "^4.17.1",
+    "moment": "^2.26.0",
+    "winston": "^3.2.1"
+  },
+  "type": "module"
+}
