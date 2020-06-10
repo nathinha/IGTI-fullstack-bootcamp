@@ -26,3 +26,40 @@ gradesRouter.post('/', async (req, res) => {
     res.status(500).send({ error: err.message });
   }
 });
+
+// updates grade information
+gradesRouter.put('/:id', async (req, res) => {
+  let status = 200;
+  let params = req.body;
+
+  const id = parseInt(req.params.id);
+  if (isNaN(id)) {
+    status = 400;
+    throw new Error(`PUT /grades - invalid identifier - id: ${id}`);
+  }
+
+  try {
+    let json = await read();
+
+    let gradeIdx = json.grades.findIndex((grade) => grade.id === id);
+    if (gradeIdx < 0) {
+      status = 404;
+      throw new Error(`PUT /grades - grade not found - id: ${id}`);
+    }
+
+    params = {
+      id: id,
+      ...params,
+      timestamp: new Date().toISOString(),
+    };
+    json.grades[gradeIdx] = params;
+    await write(json);
+
+    logger.info(`PUT /grades - grade updated - id: ${id}`);
+    return res.json({ id: id });
+  } catch (err) {
+    if (status == 200) status = 500;
+    logger.error(err);
+    res.status(status).send({ error: err.message });
+  }
+});
