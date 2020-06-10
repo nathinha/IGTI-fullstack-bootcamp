@@ -94,3 +94,30 @@ gradesRouter.delete('/:id', async (req, res) => {
     res.status(status).send({ error: err.message });
   }
 });
+
+// returns grade information
+gradesRouter.get('/:id', async (req, res) => {
+  let status = 200;
+
+  const id = parseInt(req.params.id);
+  if (isNaN(id)) {
+    status = 400;
+    throw new Error(`GET /grades - invalid identifier - id: ${id}`);
+  }
+
+  try {
+    const json = await read();
+    const grade = json.grades.find((grade) => grade.id === id);
+    if (!grade) {
+      status = 404;
+      throw new Error(`GET /grades - grade not found - id: ${id}`);
+    } else {
+      logger.info(`GET /grades - grade info returned - id: ${id}`);
+      res.send(grade);
+    }
+  } catch (err) {
+    if (status == 200) status = 500;
+    logger.error(err);
+    res.status(status).send({ error: err.message });
+  }
+});
