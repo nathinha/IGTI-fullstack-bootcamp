@@ -5,7 +5,7 @@
 HTML, CSS and "vanilla" JavaScript.
 
 - [Guided Exercise 01](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit01/01_class09guided/readme.MD)
-  -[Run Application](https://nathinha.github.io/IGTI-fullstack-bootcamp/unit01/01_class09guided/)
+  - [Run Application](https://nathinha.github.io/IGTI-fullstack-bootcamp/unit01/01_class09guided/)
 - [Hands On](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit01/02_handson/readme.MD)
   - [Run Application](https://nathinha.github.io/IGTI-fullstack-bootcamp/unit01/02_handson/)
 - [Guided Exercise 02](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit01/03_class17guided)
