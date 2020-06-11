@@ -15,7 +15,7 @@ HTML, CSS and "vanilla" JavaScript.
 
 ### Unit II - API development
 - [Guided Exercise](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit02/01_guided_exercise/readme.MD)
-- [HandsOn Activity](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit02/02_handson/readme.MD)
+- [Hands On Activity](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit02/02_handson/readme.MD)
 - [Challenge Activity](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit02/03_challenge/readme.md)
 
 ### Unit III - FrontEnd with React
