@@ -1,8 +1,7 @@
 # City-State
 ## Objectives
 
-Create a Node.js backend application that is dumb, does not acts as a server and just executes file processing activities.  
-~~Yes, someone is a little mad that a hands on task on Node.js does not involve serving.~~
+Create a Node.js backend application that is dumb, does not acts as a server and just executes file processing activities.
 
 To exercise some concepts learnt in 'Unit 02' as:
 - Node.js
