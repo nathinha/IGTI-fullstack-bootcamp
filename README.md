@@ -14,9 +14,11 @@ HTML, CSS and "vanilla" JavaScript.
   - [Run Application](https://nathinha.github.io/IGTI-fullstack-bootcamp/unit01/04_challenge)
 
 ### Unit II - API development
-- [my-bank-api Guided Exercise](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit02/my-bank-api/readme.MD)
-- [cidades-estado Hands On Activity](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit02/cidades-estado/readme.MD)
-- [grades-control-api Challenge Activity](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit02/grades-control-api/readme.md)
+Activity Name | Activity Type | Read Me Link | Repo Link
+------------- | ------------- | ------------ | ---------
+my-bank-api | Guided Exercise | [Read Me](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit02/my-bank-api/readme.MD) | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit02/my-bank-api)
+cidades-estado | Hands On | [Read Me](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit02/cidades-estado/readme.MD) | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit02/cidades-estado)
+grades-control-api | Challenge | [Read Me](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit02/grades-control-api/readme.md) | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit02/grades-control-api)
 
 ### Unit III - FrontEnd with React
 
