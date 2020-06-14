@@ -18,5 +18,9 @@ cidades-estado | Hands On | [Read Me](https://github.com/nathinha/IGTI-fullstack
 grades-control-api | Challenge | [Read Me](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit02/grades-control-api/readme.md) | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit02/grades-control-api)
 
 ### Unit III - FrontEnd with React
+Activity Name | Activity Type | Read Me Link | Repo Link
+------------- | ------------- | ------------ | ---------
+react-counter | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-counter)
+react-lifecycle | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-lifecycle)
 
 ### Unit IV - Data persistence, code version control and deployment
