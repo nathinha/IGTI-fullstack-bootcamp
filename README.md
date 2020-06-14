@@ -14,9 +14,9 @@ HTML, CSS and "vanilla" JavaScript.
   - [Run Application](https://nathinha.github.io/IGTI-fullstack-bootcamp/unit01/04_challenge)
 
 ### Unit II - API development
-- [Guided Exercise](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit02/01_guided_exercise/readme.MD)
-- [Hands On Activity](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit02/02_handson/readme.MD)
-- [Challenge Activity](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit02/03_challenge/readme.md)
+- [my-bank-api Guided Exercise](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit02/my-bank-api/readme.MD)
+- [cidades-estado Hands On Activity](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit02/cidades-estado/readme.MD)
+- [grades-control-api Challenge Activity](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit02/grades-control-api/readme.md)
 
 ### Unit III - FrontEnd with React
 
