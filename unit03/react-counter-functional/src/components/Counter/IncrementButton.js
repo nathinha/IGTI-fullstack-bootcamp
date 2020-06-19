@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class IncrementButton extends Component {
-  handleClick = () => {
-    this.props.onIncrement('+');
+export default function IncrementButton({ onIncrement }) {
+  const handleClick = () => {
+    onIncrement('+');
   };
-  render() {
-    return (
-      <button
-        onClick={this.handleClick}
-        className="waves-effect waves-light btn green darken-3"
-      >
-        +
-      </button>
-    );
-  }
+  return (
+    <button
+      onClick={handleClick}
+      className="waves-effect waves-light btn green darken-3"
+    >
+      +
+    </button>
+  );
 }
