@@ -1,0 +1,8 @@
+strong {
+  font-weight: bolder !important;
+}
+
+.headerBox {
+  padding: 5px;
+  border-radius: 2px;
+}
