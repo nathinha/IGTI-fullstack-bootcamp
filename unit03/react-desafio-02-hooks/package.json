@@ -1,5 +1,5 @@
 {
-  "name": "react-lifecycle-functional",
+  "name": "react-desafio-02-hooks",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,6 +9,7 @@
     "materialize-css": "1.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-materialize": "^3.9.2",
     "react-scripts": "3.4.1"
   },
   "scripts": {

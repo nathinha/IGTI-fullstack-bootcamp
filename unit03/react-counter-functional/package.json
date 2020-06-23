@@ -1,5 +1,5 @@
 {
-  "name": "react-counter",
+  "name": "react-counter-functional",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
