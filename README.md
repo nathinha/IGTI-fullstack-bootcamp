@@ -23,5 +23,11 @@ Activity Name | Activity Type | Read Me Link | Repo Link
 react-counter | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-counter)
 react-lifecycle | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-lifecycle)
 react-desafio-02 | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-desafio-02)
+react-counter-functional | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-counter-functional)
+react-lifecycle-functional | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-lifecycle-functional)
+react-desafio-02-functional | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-desafio-02-functional)
+react-counter-hooks | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-counter-hooks)
+react-lifecycle-hooks | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-lifecycle-hooks)
+react-desafio-02-hooks | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-desafio-02-hooks)
 
 ### Unit IV - Data persistence, code version control and deployment
