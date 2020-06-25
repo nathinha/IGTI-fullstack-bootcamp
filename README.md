@@ -26,8 +26,13 @@ react-desafio-02 | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IG
 react-counter-functional | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-counter-functional)
 react-lifecycle-functional | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-lifecycle-functional)
 react-desafio-02-functional | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-desafio-02-functional)
+react-desafio-03-functional | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-desafio-03-functional/frontend)
+react-salario | Hands On | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-salario)
 react-counter-hooks | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-counter-hooks)
 react-lifecycle-hooks | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-lifecycle-hooks)
 react-desafio-02-hooks | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-desafio-02-hooks)
+react-desafio-03-hooks | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-desafio-03-hooks/frontend)
+react-desafio-04 | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-desafio-04/frontend)
+react-juro-composto | Challenge | [Read Me](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit03/react-juro-composto/readme.MD) | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-juro-composto)
 
 ### Unit IV - Data persistence, code version control and deployment
