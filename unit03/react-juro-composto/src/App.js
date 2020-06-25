@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Form from './components/Form';
-import { formatCurrency, formatPercentage } from './utils/formatter';
+import Terms from './components/Terms';
 
 export default function App() {
   const [capital, setCapital] = useState(0);
@@ -50,24 +50,10 @@ export default function App() {
         data={{ capital, interestRate, period }}
         onFormChange={onFormChange}
       />
-      <div className="terms row">
-        {
-          terms.map((term) => {
-            return (term.total > 0 &&
-              <div key={term.id} className="col s2">
-                <div className="row valign-wrapper">
-                  <div className="col">{term.id}</div>
-                  <div className="col">
-                    <div>{formatCurrency(term.total)}</div>
-                    <div>{formatCurrency(term.interest)}</div>
-                    <div>{formatPercentage(term.percentage)}</div>
-                  </div>
-                </div>
-              </div>
-            )
-          })
-        }
-      </div>
+
+      <Terms
+        data={terms}
+      />
     </div>
   );
 }
