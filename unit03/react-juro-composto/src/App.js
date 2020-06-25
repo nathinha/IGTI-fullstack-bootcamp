@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getTotal } from './utils/interest';
 import { formatCurrency, formatPercentage } from './utils/formatter';
+import Form from './components/Form';
 
 
 export default function App() {
@@ -27,72 +28,30 @@ export default function App() {
     setTermsInfo(terms);
   }, [capital, interestRate, period]);
 
-  const onCapitalChange = (event) => {
-    setCapital(event.target.value);
-  }
+  const onFormChange = (newCapital, newInterestRate, newPeriod) => {
+    if (newCapital !== null) {
+      setCapital(newCapital);
+      return;
+    }
 
-  const onInterestRateChange = (event) => {
-    setInterestRate(event.target.value);
-  }
+    if (newInterestRate !== null) {
+      setInterestRate(newInterestRate);
+      return;
+    }
 
-  const onTermChange = (event) => {
-    setPeriod(event.target.value);
+    if (newPeriod !== null) {
+      setPeriod(newPeriod);
+      return;
+    }
   }
 
   return (
     <div className="container">
       <h1 className="center">React - Juros Compostos</h1>
-      <div className="form row">
-        <form>
-          <div className="input-field col s4">
-            <input
-              id="capital"
-              type="number"
-              value={capital}
-              min="0"
-              max="100000"
-              step="100"
-              onChange={onCapitalChange}
-            />
-            <label
-              className="active"
-              htmlFor="capital">
-              Capital
-            </label>
-          </div>
-          <div className="input-field col s4">
-            <input
-              id="interest_rate"
-              type="number"
-              value={interestRate}
-              min="-12"
-              max="12"
-              step="0.1"
-              onChange={onInterestRateChange}
-            />
-            <label
-              className="active"
-              htmlFor="interest_rate">
-              Interest Rate
-            </label>
-          </div>
-          <div className="input-field col s4">
-            <input
-              id="term"
-              type="number"
-              value={period}
-              min="1"
-              max="36"
-              onChange={onTermChange}
-            />
-            <label
-              className="active"
-              htmlFor="term">
-              Term
-            </label>
-          </div>
-        </form>
-      </div>
+      <Form
+        data={{ capital, interestRate, period }}
+        onFormChange={onFormChange}
+      />
       <div className="terms row">
         {
           termsInfo.map((term) => {
