@@ -27,7 +27,7 @@ react-counter-functional | Guided Exercise | N/A | [Repo](https://github.com/nat
 react-lifecycle-functional | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-lifecycle-functional)
 react-desafio-02-functional | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-desafio-02-functional)
 react-desafio-03-functional | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-desafio-03-functional/frontend)
-react-salario | Hands On | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-salario)
+react-salario | Hands On | [Read Me](https://github.com/nathinha/IGTI-fullstack-bootcamp/blob/master/unit03/react-salario/readme.MD) | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-salario)
 react-counter-hooks | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-counter-hooks)
 react-lifecycle-hooks | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-lifecycle-hooks)
 react-desafio-02-hooks | Guided Exercise | N/A | [Repo](https://github.com/nathinha/IGTI-fullstack-bootcamp/tree/master/unit03/react-desafio-02-hooks)
