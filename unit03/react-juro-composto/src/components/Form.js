@@ -1,70 +1,45 @@
 import React from 'react'
+import Input from './Input';
 
 export default function Form({ data, onFormChange }) {
   const { capital, interestRate, period } = data;
 
-  const onCapitalChange = (event) => {
-    onFormChange(event.target.value, null, null);
+  const onCapitalChange = (value) => {
+    onFormChange(value, null, null);
   }
 
-  const onInterestRateChange = (event) => {
-    onFormChange(null, event.target.value, null);
+  const onInterestRateChange = (value) => {
+    onFormChange(null, value, null);
   }
 
-  const onTermChange = (event) => {
-    onFormChange(null, null, event.target.value);
+  const onTermChange = (value) => {
+    onFormChange(null, null, value);
   }
 
   return (
     <div className="form row">
       <form>
-        <div className="input-field col s4">
-          <input
-            id="capital"
-            type="number"
-            value={capital}
-            min="0"
-            max="100000"
-            step="100"
-            onChange={onCapitalChange}
-          />
-          <label
-            className="active"
-            htmlFor="capital">
-            Capital
-            </label>
-        </div>
-        <div className="input-field col s4">
-          <input
-            id="interest_rate"
-            type="number"
-            value={interestRate}
-            min="-12"
-            max="12"
-            step="0.1"
-            onChange={onInterestRateChange}
-          />
-          <label
-            className="active"
-            htmlFor="interest_rate">
-            Interest Rate
-            </label>
-        </div>
-        <div className="input-field col s4">
-          <input
-            id="term"
-            type="number"
-            value={period}
-            min="1"
-            max="36"
-            onChange={onTermChange}
-          />
-          <label
-            className="active"
-            htmlFor="term">
-            Term
-            </label>
-        </div>
+        <Input
+          id="capital"
+          label="Capital"
+          value={capital}
+          constraints={{ min: "0", max: "100000", step: "100" }}
+          onInputChange={onCapitalChange}
+        />
+        <Input
+          id="interest_rate"
+          label="Interest Rate (% a.m.)"
+          value={interestRate}
+          constraints={{ min: "-12", max: "12", step: "0.1" }}
+          onInputChange={onInterestRateChange}
+        />
+        <Input
+          id="period"
+          label="Period (months)"
+          value={period}
+          constraints={{ min: "1", max: "36", step: "1" }}
+          onInputChange={onTermChange}
+        />
       </form>
     </div>
   )

@@ -18,7 +18,7 @@ export default function App() {
       let percentage = capital > 0 ? (total / capital) - 1 : 0;
 
       terms.push({
-        id: period,
+        id: i,
         total,
         interest,
         percentage
