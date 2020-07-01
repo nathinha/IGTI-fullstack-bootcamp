@@ -1,11 +1,7 @@
 import express from 'express';
-import accountModel from '../models/account.js';
-import { getBalance, credit, withdraw, transfer } from '../controllers/accounts.js';
+import { getBalance, credit, withdraw, transfer } from '../controllers/account.js';
 
 export const accountRouter = express.Router();
-
-const WITHDRAW_TAX = 1;
-const TRANSFER_TAX = 1;
 
 accountRouter.get('/balance', async (req, res) => {
   let { agencia, conta } = req.body;

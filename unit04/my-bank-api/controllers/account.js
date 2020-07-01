@@ -12,12 +12,7 @@ const getBalance = async (branchNumber, accountNumber) => {
 const credit = async (branchNumber, accountNumber, value) => {
   const account = await getAccount(branchNumber, accountNumber);
   const newBalance = account.balance + value;
-  try {
-    return { balance: await setBalance(account._id, newBalance) };
-  }
-  catch (err) {
-    throw new HTTPError(422, err.message);
-  }
+  return { balance: await setBalance(account._id, newBalance) };
 }
 
 const withdraw = async (branchNumber, accountNumber, value) => {
@@ -28,12 +23,7 @@ const withdraw = async (branchNumber, accountNumber, value) => {
 const debit = async (branchNumber, accountNumber, value) => {
   const account = await getAccount(branchNumber, accountNumber);
   const newBalance = account.balance - value;
-  try {
-    return { balance: await setBalance(account._id, newBalance) };
-  }
-  catch (err) {
-    throw new HTTPError(422, err.message);
-  }
+  return { balance: await setBalance(account._id, newBalance) };
 }
 
 const transfer = async (origin, destination, value) => {
@@ -50,35 +40,49 @@ const transfer = async (origin, destination, value) => {
 }
 
 const getAccount = async (branchNumber, accountNumber) => {
-  const account = await accountModel.findOne(
-    {
-      agencia: branchNumber,
-      conta: accountNumber
+  try {
+    const account = await accountModel.findOne(
+      {
+        agencia: branchNumber,
+        conta: accountNumber
+      }
+    );
+
+    if (!account) {
+      throw new HTTPError(404, 'Could not find account');
     }
-  );
 
-  if (!account) {
-    throw new HTTPError(404, 'Could not find account');
+    return account;
   }
-
-  return account;
+  catch (err) {
+    if (err.statusCode === 404) {
+      throw err;
+    }
+    else {
+      throw new HTTPError(500, err.message);
+    }
+  }
 }
 
 const setBalance = async (id, value) => {
-  const account = await accountModel.findByIdAndUpdate(
-    id,
-    {
-      $set: {
-        balance: value
+  try {
+    const account = await accountModel.findByIdAndUpdate(
+      id,
+      {
+        $set: {
+          balance: value
+        }
+      },
+      {
+        new: true,
+        runValidators: true
       }
-    },
-    {
-      new: true,
-      runValidators: true
-    }
-  );
-
-  return account.balance;
+    );
+    return account.balance;
+  }
+  catch (err) {
+    throw new HTTPError(422, err.message);
+  }
 }
 
 export { getBalance, credit, withdraw, transfer };
