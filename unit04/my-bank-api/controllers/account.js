@@ -16,7 +16,8 @@ const credit = async (branchNumber, accountNumber, value) => {
 }
 
 const withdraw = async (branchNumber, accountNumber, value) => {
-  let taxedValue = account.balance - value - WITHDRAW_TAX;
+  const account = await getAccount(branchNumber, accountNumber);
+  let taxedValue = value + WITHDRAW_TAX;
   return await debit(branchNumber, accountNumber, taxedValue);
 }
 
