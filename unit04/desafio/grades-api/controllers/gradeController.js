@@ -1,10 +1,16 @@
-import { db } from '../models/index.js';
 import { logger } from '../config/logger.js';
+import gradeModel from '../models/grade.js';
 
 const create = async (req, res) => {
   try {
-    res.send();
-    logger.info(`POST /grade - ${JSON.stringify()}`);
+    const grade = new gradeModel(req.body);
+    await grade.save((err) => {
+      if (err) {
+        throw err;
+      }
+    })
+    res.send(grade);
+    logger.info(`POST /grade - ${JSON.stringify(grade)}`);
   } catch (error) {
     res
       .status(500)
@@ -22,7 +28,8 @@ const findAll = async (req, res) => {
     : {};
 
   try {
-    res.send();
+    const grades = await gradeModel.find(condition).exec();
+    res.send(grades);
     logger.info(`GET /grade`);
   } catch (error) {
     res
@@ -36,8 +43,8 @@ const findOne = async (req, res) => {
   const id = req.params.id;
 
   try {
-    res.send();
-
+    const grade = await gradeModel.findById(id);
+    res.send(grade);
     logger.info(`GET /grade - ${id}`);
   } catch (error) {
     res.status(500).send({ message: 'Erro ao buscar o Grade id: ' + id });
@@ -53,8 +60,24 @@ const update = async (req, res) => {
   }
 
   const id = req.params.id;
+  const grade = req.body;
 
   try {
+    await gradeModel.findByIdAndUpdate(
+      id,
+      {
+        $set: {
+          name: grade.name,
+          subject: grade.subject,
+          type: grade.type,
+          value: grade.value,
+          lastModified: Date.now()
+        }
+      },
+      {
+        runValidators: true
+      }
+    );
     res.send({ message: 'Grade atualizado com sucesso' });
 
     logger.info(`PUT /grade - ${id} - ${JSON.stringify(req.body)}`);
@@ -68,6 +91,7 @@ const remove = async (req, res) => {
   const id = req.params.id;
 
   try {
+    await gradeModel.findByIdAndDelete(id);
     res.send({ message: 'Grade excluido com sucesso' });
 
     logger.info(`DELETE /grade - ${id}`);
@@ -83,6 +107,7 @@ const removeAll = async (req, res) => {
   const id = req.params.id;
 
   try {
+    await gradeModel.deleteMany({});
     res.send({
       message: `Grades excluidos`,
     });
